@@ -16,12 +16,12 @@ class MyFragment : Fragment() {
         // Inflate the layout for this fragment
 
 
-         val pieView = (PieView)findViewById(R.id.pie_view);
-        ArrayList<PieHelper> pieHelperArrayList = new ArrayList<PieHelper>();
-        pieView.setDate(pieHelperArrayList);
-        pieView.selectedPie(2); //optional
-        pieView.setOnPieClickListener(listener) //optional
-        pieView.showPercentLabel(false); //optional
+//         val pieView = (PieView)findViewById(R.id.pie_view);
+//        ArrayList<PieHelper> pieHelperArrayList = new ArrayList<PieHelper>();
+//        pieView.setDate(pieHelperArrayList);
+//        pieView.selectedPie(2); //optional
+//        pieView.setOnPieClickListener(listener) //optional
+//        pieView.showPercentLabel(false); //optional
 
 
         return inflater.inflate(R.layout.fragment_my, container, false)

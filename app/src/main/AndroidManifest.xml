@@ -14,8 +14,8 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".SearchActivity" />
         <activity android:name=".BadgeActivity" />
-        <activity android:name=".RecordActivity" />
-        <activity android:name=".WishListActivity" />
+        <activity android:name=".record.RecordActivity" />
+        <activity android:name=".wishlist.WishListActivity" />
         <activity android:name=".MovieDetailActivity" />
         <activity android:name=".LoginActivity" />
         <activity
