@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
         android:orientation="vertical"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".wishlist.WishListActivity">
 
         <LinearLayout
-            android:background="@color/water_blue"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize">
+            android:layout_height="85dp"
+            android:background="@color/very_light_pink"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <TextView
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:text="나의 위시리스트"
-                android:layout_marginLeft="24dp"
-                android:textStyle="bold"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:text="나의 위시리스트"
+                android:textColor="@color/water_blue"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:lineSpacingExtra="3sp"/>
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
