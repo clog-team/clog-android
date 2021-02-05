@@ -23,29 +23,21 @@ class FriendFragment : Fragment() {
     private val binding get() = _binding!!
 
     val profileList = arrayListOf(
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",10),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",20),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",30),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",40),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",50),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",60),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",70),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",80),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",90),
+        FriendProfile(R.drawable.profile_img,"김민정","밥은 먹고 다니냐",30),
+        FriendProfile(R.drawable.profile_img,"박영민","누구냐 넌?!",12),
+        FriendProfile(R.drawable.profile_img,"신윤섭","헤이 브라더!",58),
+        FriendProfile(R.drawable.profile_img,"이주영","그대 눈동자에 건배",64),
+        FriendProfile(R.drawable.profile_img,"김채린","내안에 너있다",91),
+        FriendProfile(R.drawable.profile_img,"이채정","헤이 브라더!",56),
+        FriendProfile(R.drawable.profile_img,"김유정","그대 눈동자에 건배",73),
+        FriendProfile(R.drawable.profile_img,"김민채","누구냐 넌?!",28),
+        FriendProfile(R.drawable.profile_img,"이민영","밥은 먹고 다니냐",46),
     )
     val graphLists = arrayListOf(
-        Graphs("홍길동","솜사탕","빼빼로"),
-        Graphs("홍길동","솜사탕","빼빼로"),
-        Graphs("홍길동","솜사탕","빼빼로"),
-        Graphs("홍길동","솜사탕","빼빼로"),
-        Graphs("홍길동","솜사탕","빼빼로"),
-        Graphs("홍길동","솜사탕","빼빼로"),
-        Graphs("홍길동","솜사탕","빼빼로"),
-        Graphs("홍길동","솜사탕","빼빼로"),
-        Graphs("홍길동","솜사탕","빼빼로"),
-        Graphs("홍길동","솜사탕","빼빼로"),
-        Graphs("홍길동","솜사탕","빼빼로"),
-        Graphs("홍길동","솜사탕","빼빼로"),
+        Graphs("김민정","이주영","김유정"),
+        Graphs("박영민","김채린","신윤섭","시청 시간이\n가장 적은 사람"),
+        Graphs("이채정","신윤섭","이민영","가장 별점을\n짜게 준 사람"),
+        Graphs("김채린","김유정","이주영","내 별점을\n가장 많이 맞춘 사람")
     )
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
