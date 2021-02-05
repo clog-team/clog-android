@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MovieIt">
+        android:theme="@style/Theme.MovieIt"
+        android:usesCleartextTraffic="true">
         <activity android:name=".SearchActivity" />
         <activity android:name=".BadgeActivity" />
         <activity android:name=".RecordActivity" />
