@@ -1,37 +1,37 @@
 package com.movie.it
 
 import android.content.Context
-import android.content.Intent
-import android.icu.util.ULocale.ROOT
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import retrofit2.Retrofit
-import retrofit2.http.Url
-import java.util.Locale.ROOT
+import com.movie.it.databinding.FragmentFriendBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class FriendFragment : Fragment() {
-    lateinit var freindRecyclerView: RecyclerView
-    lateinit var graphRecyclerView: RecyclerView
-    //lateinit var  ArrayList<mydata> mMyData
+    private var _binding: FragmentFriendBinding? = null
+    private val binding get() = _binding!!
+
     val profileList = arrayListOf(
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",10),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",20),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",30),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",40),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",50),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",60),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",70),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",80),
-        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",90),
+        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",10),
+        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",20),
+        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",30),
+        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",40),
+        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",50),
+        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",60),
+        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",70),
+        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",80),
+        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",90),
     )
     val graphLists = arrayListOf(
         Graphs("홍길동","솜사탕","빼빼로"),
@@ -52,35 +52,42 @@ class FriendFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_friend, container, false)
+        _binding = FragmentFriendBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val context = requireContext()
 
+        binding.apply {
+            setHorizontalRecyclerViewConfig(binding.recyclerviewFriendGraph)
+            val grapAdapter = MyGraphAdapter(context,graphLists)
+            binding.recyclerviewFriendGraph.adapter = grapAdapter
 
-        val friendadapter = MyFriendAdapter(context, profileList)
-        freindRecyclerView = view.findViewById<RecyclerView>(R.id.recyclerview_friend)
-        freindRecyclerView.adapter = friendadapter
-
-        val graphadapter = MyGraphAdapter(context, graphLists)
-        graphRecyclerView = view.findViewById<RecyclerView>(R.id.recyclerview_friend_graph)
-        graphRecyclerView.layoutManager =
-            LinearLayoutManager(context).also { it.orientation = LinearLayoutManager.HORIZONTAL }
-        graphRecyclerView.adapter = graphadapter
-
-//        view.findViewById<Button>(R.id.button).setOnClickListener {
-//            val intent = Intent(getActivity(), BadgeActivity::class.java)
-//            startActivity(intent)
-//        }
+            setVerticalRecyclerViewConfig(binding.recyclerviewFriend)
+            val friendAdapter = MyFriendAdapter(context,profileList)
+            binding.recyclerviewFriend.adapter = friendAdapter
+        }
     }
 
+
+    private fun setHorizontalRecyclerViewConfig(recyclerView: RecyclerView) {
+        val context = requireContext()
+        recyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+    }
+    private fun setVerticalRecyclerViewConfig(recyclerView: RecyclerView) {
+        val context = requireContext()
+        recyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+    }
 
 }
 
 class Graphs(val one:String, val two:String, val three:String)
 
-class MyFriendAdapter(context: Context?, val profilesList:ArrayList<FriendProfile>) : RecyclerView.Adapter<MyFriendAdapter.CustomViewViewHolder>(){
+class MyFriendAdapter(context: Context?, val profilesList:ArrayList<FriendProfile1>) : RecyclerView.Adapter<MyFriendAdapter.CustomViewViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_friend_item,parent, false)
@@ -90,7 +97,7 @@ class MyFriendAdapter(context: Context?, val profilesList:ArrayList<FriendProfil
         return profilesList.size
     }
     override fun onBindViewHolder(holder: CustomViewViewHolder, position: Int) {
-        holder.name.text=profilesList.get(position).name
+        holder.name.text=profilesList.get(position).username
         holder.level.text=profilesList.get(position).level
         holder.img.setImageResource(profilesList.get(position).img)
         holder.prog.setProgress(profilesList.get(position).prog)
@@ -126,10 +133,3 @@ class MyGraphAdapter(context: Context?, val graphList:ArrayList<Graphs>) : Recyc
         val three = itemView.findViewById<TextView>(R.id.friend_graph_three)
     }
 }
-//class ViewModel {
-////    val data = MutableLiveData<List<DocumentSnapshot>>()
-//    val data = MutableLiveData<List<Profiles>>()
-//    fun showText(view: View) {
-//        Toast.makeText(view.context, "${text.get()}", Toast.LENGTH_SHORT).show()
-//    }
-//}
