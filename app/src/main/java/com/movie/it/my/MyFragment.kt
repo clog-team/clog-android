@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.movie.it.BadgeActivity
-import com.movie.it.R
 import com.movie.it.databinding.FragmentMyBinding
 import com.movie.it.record.RecordActivity
 import com.movie.it.wishlist.WishListActivity
-import im.dacer.androidcharts.PieHelper
 
 class MyFragment : Fragment() {
 
@@ -62,7 +60,9 @@ class MyFragment : Fragment() {
 
     }
 
-//    private fun make
+    private fun makeGenreData(): List<PieEntry> {
+
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
