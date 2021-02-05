@@ -1,148 +1,328 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:overScrollMode="never"
-    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+    tools:context=".HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/searchButton"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="영화 검색"
+        android:textAlignment="textStart"
+        app:icon="@drawable/ic_baseline_search_24"
+        app:layout_constraintBottom_toBottomOf="@id/logoImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/logoImageView"
+        app:layout_constraintTop_toTopOf="@id/logoImageView"
+        app:layout_constraintWidth_percent="0.7" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/movieScrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".HomeFragment">
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchButton">
 
-        <ImageView
-            android:id="@+id/logoImageView"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="20dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/logo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/searchButton"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="영화 검색"
-            android:textAlignment="textStart"
-            app:icon="@drawable/ic_baseline_search_24"
-            app:layout_constraintBottom_toBottomOf="@id/logoImageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/logoImageView"
-            app:layout_constraintTop_toTopOf="@id/logoImageView"
-            app:layout_constraintWidth_percent="0.7" />
-
-        <TextView
-            android:id="@+id/friendTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:text="친구가 나의 평가를 원하는 영화"
-            android:textSize="13sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchButton" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/friendRecyclerView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="8dp"
-            android:fadeScrollbars="false"
-            android:minHeight="120dp"
-            android:orientation="horizontal"
-            android:overScrollMode="never"
-            android:scrollbarStyle="outsideInset"
-            android:scrollbars="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/friendTextView" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/friendEvalTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:text="내 친구들이 가장 많이 추천한 영화"
-            android:textSize="13sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/friendRecyclerView" />
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="내맘속의 일등"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/friendEvalRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="8dp"
-            android:fadeScrollbars="false"
-            android:minHeight="120dp"
-            android:orientation="horizontal"
-            android:overScrollMode="never"
-            android:scrollbarStyle="outsideInset"
-            android:scrollbars="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/friendEvalTextView" />
+            <ImageView
+                android:id="@+id/friend_image"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/profile_img"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv1" />
 
-        <TextView
-            android:id="@+id/recentTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:text="최신 영화"
-            android:textSize="13sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/friendEvalRecyclerView" />
+            <ProgressBar
+                android:id="@+id/friend_item_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginBottom="13dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="30"
+                android:progressDrawable="@drawable/progressbar_custom"
+                app:layout_constraintBottom_toBottomOf="@id/friend_image"
+                app:layout_constraintEnd_toEndOf="@+id/friend_image"
+                app:layout_constraintStart_toStartOf="@+id/friend_image"
+                app:layout_constraintTop_toTopOf="@id/friend_image" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recentRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="8dp"
-            android:fadeScrollbars="false"
-            android:minHeight="120dp"
-            android:orientation="horizontal"
-            android:overScrollMode="never"
-            android:scrollbarStyle="outsideInset"
-            android:scrollbars="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recentTextView" />
+            <ImageView
+                android:id="@+id/crownImageView"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="24dp"
+                android:src="@drawable/crown"
+                app:layout_constraintStart_toStartOf="@+id/friend_image"
+                app:layout_constraintTop_toTopOf="@+id/friend_image" />
 
-        <TextView
-            android:id="@+id/oldTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:text="고전 명작"
-            android:textSize="13sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recentRecyclerView" />
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="8dp"
+                android:text="30%"
+                android:textSize="30sp"
+                app:layout_constraintStart_toEndOf="@+id/friend_image"
+                app:layout_constraintTop_toBottomOf="@id/tv1" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/oldRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="8dp"
-            android:fadeScrollbars="false"
-            android:minHeight="120dp"
-            android:orientation="horizontal"
-            android:overScrollMode="never"
-            android:scrollbarStyle="outsideInset"
-            android:scrollbars="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/oldTextView" />
+            <TextView
+                android:id="@+id/friendState"
+                android:layout_width="96dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:background="#3ca7df"
+                android:gravity="center"
+                android:lineSpacingExtra="1sp"
+                android:text="내안에 너있다"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintCircleRadius="12dp"
+                app:layout_constraintEnd_toEndOf="@id/tv2"
+                app:layout_constraintStart_toStartOf="@id/tv2"
+                app:layout_constraintTop_toBottomOf="@id/tv2" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+            <TextView
+                android:id="@+id/friendName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="김채린"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/tv2"
+                app:layout_constraintStart_toStartOf="@id/tv2"
+                app:layout_constraintTop_toBottomOf="@id/friendState" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:paddingBottom="12dp"
+                android:text="비도오고,, 어두침침한 날,, 호러광 김유진님과 호러무빗!"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/friend_image" />
+
+            <ImageView
+                android:id="@+id/friend_image2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="32dp"
+                android:src="@drawable/saw"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv3" />
+
+            <ProgressBar
+                android:id="@+id/friend_item_progress2"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginBottom="6dp"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="30"
+                android:progressDrawable="@drawable/progressbar_custom"
+                app:layout_constraintBottom_toBottomOf="@id/friend_image2"
+                app:layout_constraintEnd_toEndOf="@+id/friend_image2"
+                app:layout_constraintStart_toStartOf="@+id/friend_image2"
+                app:layout_constraintTop_toTopOf="@id/friend_image2" />
+
+            <TextView
+                android:id="@+id/friendState2"
+                android:layout_width="96dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:background="#3ca7df"
+                android:gravity="center"
+                android:lineSpacingExtra="1sp"
+                android:text="밥은 먹고 다니냐"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintCircleRadius="12dp"
+                app:layout_constraintEnd_toEndOf="@id/friend_image2"
+                app:layout_constraintStart_toStartOf="@id/friend_image2"
+                app:layout_constraintTop_toBottomOf="@id/friend_image2" />
+
+            <TextView
+                android:id="@+id/friendName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="김유진"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/friend_image2"
+                app:layout_constraintStart_toStartOf="@id/friend_image2"
+                app:layout_constraintTop_toBottomOf="@id/friendState2" />
+
+            <TextView
+                android:id="@+id/friendTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:text="친구가 나의 평가를 원하는 영화"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/friendName2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/horrorRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:fadeScrollbars="false"
+                android:minHeight="120dp"
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbars="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/friend_image2"
+                app:layout_constraintTop_toTopOf="@id/friend_image2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/friendRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:fadeScrollbars="false"
+                android:minHeight="120dp"
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbars="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/friendTextView" />
+
+            <TextView
+                android:id="@+id/friendEvalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:text="내 친구들이 가장 많이 추천한 영화"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/friendRecyclerView" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/friendEvalRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:fadeScrollbars="false"
+                android:minHeight="120dp"
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbars="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/friendEvalTextView" />
+
+            <TextView
+                android:id="@+id/recentTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:text="최신 영화"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/friendEvalRecyclerView" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recentRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:fadeScrollbars="false"
+                android:minHeight="120dp"
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbars="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recentTextView" />
+
+            <TextView
+                android:id="@+id/oldTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:text="고전 명작"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recentRecyclerView" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/oldRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:fadeScrollbars="false"
+                android:minHeight="120dp"
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbars="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/oldTextView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,8 +15,17 @@ interface ApiService {
     @GET("movies/old/")
     fun getOldMovies(): Call<MovieResponse>
 
+    @GET("movies/recommend/")
+    fun getRecommendMovies(): Call<MovieResponse>
+
+    @GET("movies/pending/?uid=1")
+    fun getFriendMovies(): Call<MovieResponse>
+
     @GET("movies/search/{movieName}/")
     fun searchMovie(@Path("movieName") movieName: String): Call<MovieResponse>
+
+    @GET("users/")
+    fun getAllUsers(): Call<UserResponse>
 
     companion object {
         private const val BASE_URL = "http://10.0.2.2:8000/"
