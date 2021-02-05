@@ -32,8 +32,9 @@ class MovieAdapter :
     inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val thumbnailView: ImageView = itemView.findViewById(R.id.movieThumbnail)
         val movieNameTextView: TextView = itemView.findViewById(R.id.movieNameTextView)
-        val directorTextView: TextView = itemView.findViewById(R.id.directorTextView)
         val openDateTextView: TextView = itemView.findViewById(R.id.openDateTextView)
+        val directorTextView: TextView = itemView.findViewById(R.id.directorTextView)
+        val genreTextView: TextView = itemView.findViewById(R.id.genreTextView)
 
         init {
             itemView.setOnClickListener {
@@ -59,6 +60,7 @@ class MovieAdapter :
             val directors = movie.director
             directorTextView.text = if (directors.isEmpty()) "" else directors.first().name
             openDateTextView.text = movie.openingDate
+            genreTextView.text = movie.genre
         }
     }
 }
