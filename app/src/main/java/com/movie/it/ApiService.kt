@@ -9,13 +9,13 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiService {
-    @GET("movie/recent/")
-    fun getRecentMovies(): Call<List<Movie>>
+    @GET("movies/recent/")
+    fun getRecentMovies(): Call<MovieResponse>
 
-    @GET("movie/old/")
-    fun getOldMovies(): Call<List<Movie>>
+    @GET("movies/old/")
+    fun getOldMovies(): Call<MovieResponse>
 
-    @GET("movies/{movieName}/")
+    @GET("movies/search/{movieName}/")
     fun searchMovie(@Path("movieName") movieName: String): Call<MovieResponse>
 
     companion object {

@@ -1,6 +1,5 @@
 package com.movie.it
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,12 @@ import com.bumptech.glide.Glide
 
 class MovieAdapter :
     ListAdapter<Movie, MovieAdapter.MovieViewHolder>(DiffCallback) {
+
+    lateinit var itemClickListener: OnItemClickListener
+
+    interface OnItemClickListener {
+        fun onItemClick(movie: Movie)
+    }
 
     object DiffCallback : DiffUtil.ItemCallback<Movie>() {
         override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
@@ -29,6 +34,12 @@ class MovieAdapter :
         val movieNameTextView: TextView = itemView.findViewById(R.id.movieNameTextView)
         val directorTextView: TextView = itemView.findViewById(R.id.directorTextView)
         val openDateTextView: TextView = itemView.findViewById(R.id.openDateTextView)
+
+        init {
+            itemView.setOnClickListener {
+                itemClickListener.onItemClick(currentList[adapterPosition])
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MovieViewHolder(
@@ -46,7 +57,6 @@ class MovieAdapter :
         holder.apply {
             movieNameTextView.text = movie.movieName
             val directors = movie.director
-            Log.d("movieit", "$directors")
             directorTextView.text = if (directors.isEmpty()) "" else directors.first().name
             openDateTextView.text = movie.openingDate
         }

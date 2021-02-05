@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -30,6 +31,7 @@ class MovieThumbnailAdapter :
 
     inner class MovieThumbnailViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val thumbnailView: ImageView = itemView.findViewById(R.id.movieThumbnail)
+        val averageTextView: TextView = itemView.findViewById(R.id.averageTextView)
 
         init {
             itemView.setOnClickListener {
@@ -48,5 +50,7 @@ class MovieThumbnailAdapter :
         Glide.with(holder.itemView.context)
             .load(movie.thumbnail)
             .into(holder.thumbnailView)
+
+        holder.averageTextView.text = "평균 ★ ${movie.rating}"
     }
 }

@@ -1,5 +1,6 @@
 package com.movie.it
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -41,7 +42,15 @@ class SearchActivity : AppCompatActivity() {
                     LinearLayoutManager.VERTICAL
                 )
             )
-            resultMoviesRecyclerView.adapter = MovieAdapter()
+            val adapter = MovieAdapter()
+            adapter.itemClickListener = object : MovieAdapter.OnItemClickListener {
+                override fun onItemClick(movie: Movie) {
+                    val intent = Intent(this@SearchActivity, MovieDetailActivity::class.java)
+                    intent.putExtra("movie", movie)
+                    startActivity(intent)
+                }
+            }
+            resultMoviesRecyclerView.adapter = adapter
         }
     }
 
@@ -51,7 +60,6 @@ class SearchActivity : AppCompatActivity() {
         call.enqueue(object : Callback<MovieResponse> {
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                 val movies = response.body()?.items ?: return
-                Log.d("movieit", "${movies}")
                 val adapter = binding.resultMoviesRecyclerView.adapter as MovieAdapter
                 adapter.submitList(movies)
             }
