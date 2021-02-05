@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = tabTextList[position]
         }.attach()
+        viewPager.isUserInputEnabled = false
     }
-
 
 }
