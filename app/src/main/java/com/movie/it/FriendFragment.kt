@@ -25,9 +25,9 @@ class FriendFragment : Fragment() {
     val profileList = arrayListOf(
         FriendProfile(R.drawable.profile_img_1,"김민정","밥은 먹고 다니냐",30),
         FriendProfile(R.drawable.profile_img_3,"박영민","누구냐 넌?!",12),
-        FriendProfile(R.drawable.profile_img_2,"신윤섭","헤이 브라더!",58),
-        FriendProfile(R.drawable.profile_img_1,"이주영","그대 눈동자에 건배",64),
-        FriendProfile(R.drawable.profile_img_4,"김채린","내안에 너있다",91),
+        FriendProfile(R.drawable.profile_img_1,"신윤섭","헤이 브라더!",58),
+        FriendProfile(R.drawable.profile_img_4,"이주영","그대 눈동자에 건배",64),
+        FriendProfile(R.drawable.profile_img_2,"김채린","내안에 너있다",91),
         FriendProfile(R.drawable.profile_img_3,"이채정","헤이 브라더!",56),
         FriendProfile(R.drawable.profile_img_2,"김유정","그대 눈동자에 건배",73),
         FriendProfile(R.drawable.profile_img_1,"김민채","누구냐 넌?!",28),
