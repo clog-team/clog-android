@@ -23,15 +23,15 @@ class FriendFragment : Fragment() {
     private val binding get() = _binding!!
 
     val profileList = arrayListOf(
-        FriendProfile(R.drawable.profile_img,"김민정","밥은 먹고 다니냐",30),
-        FriendProfile(R.drawable.profile_img,"박영민","누구냐 넌?!",12),
-        FriendProfile(R.drawable.profile_img,"신윤섭","헤이 브라더!",58),
-        FriendProfile(R.drawable.profile_img,"이주영","그대 눈동자에 건배",64),
-        FriendProfile(R.drawable.profile_img,"김채린","내안에 너있다",91),
-        FriendProfile(R.drawable.profile_img,"이채정","헤이 브라더!",56),
-        FriendProfile(R.drawable.profile_img,"김유정","그대 눈동자에 건배",73),
-        FriendProfile(R.drawable.profile_img,"김민채","누구냐 넌?!",28),
-        FriendProfile(R.drawable.profile_img,"이민영","밥은 먹고 다니냐",46),
+        FriendProfile(R.drawable.profile_img_1,"김민정","밥은 먹고 다니냐",30),
+        FriendProfile(R.drawable.profile_img_3,"박영민","누구냐 넌?!",12),
+        FriendProfile(R.drawable.profile_img_2,"신윤섭","헤이 브라더!",58),
+        FriendProfile(R.drawable.profile_img_1,"이주영","그대 눈동자에 건배",64),
+        FriendProfile(R.drawable.profile_img_4,"김채린","내안에 너있다",91),
+        FriendProfile(R.drawable.profile_img_3,"이채정","헤이 브라더!",56),
+        FriendProfile(R.drawable.profile_img_2,"김유정","그대 눈동자에 건배",73),
+        FriendProfile(R.drawable.profile_img_1,"김민채","누구냐 넌?!",28),
+        FriendProfile(R.drawable.profile_img_4,"김유진","밥은 먹고 다니냐",46),
     )
     val graphLists = arrayListOf(
         Graphs("김민정","이주영","김유정"),
