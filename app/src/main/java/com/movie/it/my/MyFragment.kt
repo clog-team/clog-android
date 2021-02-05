@@ -8,22 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
-import com.github.mikephil.charting.utils.ColorTemplate
 import com.movie.it.BadgeActivity
 import com.movie.it.R
 import com.movie.it.databinding.FragmentMyBinding
 import com.movie.it.record.RecordActivity
 import com.movie.it.wishlist.WishListActivity
 
-
 class MyFragment : Fragment() {
 
-    private var _binding: FragmentMyBinding?=null
+    private var _binding: FragmentMyBinding? = null
     private val binding get() = _binding!!
 
 
@@ -52,14 +49,12 @@ class MyFragment : Fragment() {
 
             settingPiechart(genrePieView, makeGenreData())
             settingPiechart(ratingPieView, makeRatingData())
-//            genrePieView.invalidate()
-//            ratingPieView.invalidate()
 
         }
 
     }
 
-    fun settingPiechart(pieChart: PieChart, yValues:ArrayList<PieEntry>){
+    fun settingPiechart(pieChart: PieChart, yValues: ArrayList<PieEntry>) {
 
         pieChart.apply {
             setNoDataText("")
@@ -72,8 +67,14 @@ class MyFragment : Fragment() {
             setEntryLabelColor(Color.WHITE)
         }
 
-
-        val colors = arrayOf(11198968,7522541,3911136,35024,17269)
+        val context = requireContext()
+        val colors = arrayOf(
+            ContextCompat.getColor(context, R.color.purple_200),
+            ContextCompat.getColor(context, R.color.purple_500),
+            ContextCompat.getColor(context, R.color.purple_700),
+            ContextCompat.getColor(context, R.color.teal_200),
+            ContextCompat.getColor(context, R.color.teal_700)
+        )
         pieChart.clear()
         val pieDataSet = PieDataSet(yValues, null)
         pieDataSet.colors = colors.asList()
@@ -104,25 +105,25 @@ class MyFragment : Fragment() {
     }
 
 
-    private fun  makeGenreData() : ArrayList<PieEntry>{
+    private fun makeGenreData(): ArrayList<PieEntry> {
         val yValues = ArrayList<PieEntry>()
-        yValues.add( PieEntry(34f,"코미디"))
-        yValues.add( PieEntry(23f,"액션"))
-        yValues.add( PieEntry(14f,"드라마"))
-        yValues.add( PieEntry(35f,"호러"))
-        yValues.add( PieEntry(40f,"사극"))
-        yValues.add( PieEntry(40f,"애니매이션"))
+        yValues.add(PieEntry(34f, "코미디"))
+        yValues.add(PieEntry(23f, "액션"))
+        yValues.add(PieEntry(14f, "드라마"))
+        yValues.add(PieEntry(35f, "호러"))
+        yValues.add(PieEntry(40f, "사극"))
+        yValues.add(PieEntry(40f, "애니매이션"))
         return yValues
     }
 
-    private fun  makeRatingData() : ArrayList<PieEntry>{
+    private fun makeRatingData(): ArrayList<PieEntry> {
         val yValues = ArrayList<PieEntry>()
-        yValues.add( PieEntry(34f,"5"))
-        yValues.add( PieEntry(23f,"4.5"))
-        yValues.add( PieEntry(14f,"4"))
-        yValues.add( PieEntry(35f,"3.5"))
-        yValues.add( PieEntry(40f,"2"))
-        yValues.add( PieEntry(10f,"1.5"))
+        yValues.add(PieEntry(34f, "5"))
+        yValues.add(PieEntry(23f, "4.5"))
+        yValues.add(PieEntry(14f, "4"))
+        yValues.add(PieEntry(35f, "3.5"))
+        yValues.add(PieEntry(40f, "2"))
+        yValues.add(PieEntry(10f, "1.5"))
         return yValues
     }
 
