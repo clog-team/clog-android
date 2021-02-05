@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class MovieAdapter :
-    ListAdapter<Movie, MovieAdapter.MovieViewHolder>(DiffCallback) {
+class MovieThumbnailAdapter :
+    ListAdapter<Movie, MovieThumbnailAdapter.MovieThumbnailViewHolder>(DiffCallback) {
 
     lateinit var itemClickListener: OnItemClickListener
 
@@ -29,11 +29,9 @@ class MovieAdapter :
         }
     }
 
-    inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class MovieThumbnailViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val thumbnailView: ImageView = itemView.findViewById(R.id.movieThumbnail)
-        val movieNameTextView: TextView = itemView.findViewById(R.id.movieNameTextView)
-        val directorTextView: TextView = itemView.findViewById(R.id.directorTextView)
-        val openDateTextView: TextView = itemView.findViewById(R.id.openDateTextView)
+        val averageTextView: TextView = itemView.findViewById(R.id.averageTextView)
 
         init {
             itemView.setOnClickListener {
@@ -42,23 +40,17 @@ class MovieAdapter :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MovieViewHolder(
-        LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MovieThumbnailViewHolder(
+        LayoutInflater.from(parent.context).inflate(R.layout.movie_thumbnail_item, parent, false)
     )
 
-
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MovieThumbnailViewHolder, position: Int) {
         val movie = currentList[position]
 
         Glide.with(holder.itemView.context)
             .load(movie.thumbnail)
             .into(holder.thumbnailView)
 
-        holder.apply {
-            movieNameTextView.text = movie.movieName
-            val directors = movie.director
-            directorTextView.text = if (directors.isEmpty()) "" else directors.first().name
-            openDateTextView.text = movie.openingDate
-        }
+        holder.averageTextView.text = "평균 ★ ${movie.rating}"
     }
 }

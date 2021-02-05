@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/friend_item_img"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/profile_img" />
+
+        <TextView
+            android:id="@+id/friend_item_level"
+            android:layout_width="96dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:background="#3ca7df"
+            android:lineSpacingExtra="1sp"
+            android:textColor="#000000"
+            android:textSize="10sp"
+            android:gravity="center"
+            app:layout_constraintCircleRadius="12dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/friend_item_img"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="심심할 때 생각나는" />
+
+        <ProgressBar
+            android:id="@+id/friend_item_progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/friend_item_img"
+            app:layout_constraintStart_toStartOf="parent"
+            android:progress="25"/>
+
+        <TextView
+            android:id="@+id/friend_item_name"
+            android:layout_width="44dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:lineSpacingExtra="3sp"
+            android:textColor="#000000"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/friend_item_level"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="김채린" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
