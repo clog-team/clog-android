@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/movieThumbnail"
         android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_height="152dp"
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,31 +17,41 @@
         android:id="@+id/movieNameTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@id/directorTextView"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/movieThumbnail"
         app:layout_constraintTop_toTopOf="@id/movieThumbnail" />
 
     <TextView
-        android:id="@+id/directorTextView"
+        android:id="@+id/openDateTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@id/openDateTextView"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/movieThumbnail"
         app:layout_constraintTop_toBottomOf="@id/movieNameTextView" />
 
     <TextView
-        android:id="@+id/openDateTextView"
+        android:id="@+id/directorTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@id/movieThumbnail"
+        android:layout_marginHorizontal="16dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/movieThumbnail"
+        app:layout_constraintTop_toBottomOf="@id/openDateTextView" />
+
+    <TextView
+        android:id="@+id/genreTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/movieThumbnail"
         app:layout_constraintTop_toBottomOf="@id/directorTextView" />

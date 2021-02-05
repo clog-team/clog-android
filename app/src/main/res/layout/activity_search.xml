@@ -8,14 +8,24 @@
         android:layout_height="match_parent"
         tools:context=".SearchActivity">
 
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.appcompat.widget.SearchView
             android:id="@+id/movieSearchView"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             app:iconifiedByDefault="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/logoImageView"
             app:layout_constraintTop_toTopOf="parent"
             app:queryHint="영화 제목" />
 
@@ -23,12 +33,11 @@
             android:id="@+id/resultMoviesRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="20dp"
+            android:layout_marginTop="28dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/movieSearchView" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
