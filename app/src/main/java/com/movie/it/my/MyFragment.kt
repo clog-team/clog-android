@@ -69,11 +69,11 @@ class MyFragment : Fragment() {
 
         val context = requireContext()
         val colors = arrayOf(
-            ContextCompat.getColor(context, R.color.purple_200),
-            ContextCompat.getColor(context, R.color.purple_500),
-            ContextCompat.getColor(context, R.color.purple_700),
-            ContextCompat.getColor(context, R.color.teal_200),
-            ContextCompat.getColor(context, R.color.teal_700)
+            ContextCompat.getColor(context, R.color.b1),
+            ContextCompat.getColor(context, R.color.b2),
+            ContextCompat.getColor(context, R.color.b3),
+            ContextCompat.getColor(context, R.color.b4),
+            ContextCompat.getColor(context, R.color.b5)
         )
         pieChart.clear()
         val pieDataSet = PieDataSet(yValues, null)
@@ -111,7 +111,6 @@ class MyFragment : Fragment() {
         yValues.add(PieEntry(23f, "액션"))
         yValues.add(PieEntry(14f, "드라마"))
         yValues.add(PieEntry(35f, "호러"))
-        yValues.add(PieEntry(40f, "사극"))
         yValues.add(PieEntry(40f, "애니매이션"))
         return yValues
     }
@@ -120,7 +119,6 @@ class MyFragment : Fragment() {
         val yValues = ArrayList<PieEntry>()
         yValues.add(PieEntry(34f, "5"))
         yValues.add(PieEntry(23f, "4.5"))
-        yValues.add(PieEntry(14f, "4"))
         yValues.add(PieEntry(35f, "3.5"))
         yValues.add(PieEntry(40f, "2"))
         yValues.add(PieEntry(10f, "1.5"))
