@@ -23,15 +23,15 @@ class FriendFragment : Fragment() {
     private val binding get() = _binding!!
 
     val profileList = arrayListOf(
-        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",10),
-        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",20),
-        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",30),
-        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",40),
-        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",50),
-        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",60),
-        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",70),
-        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",80),
-        FriendProfile1(R.drawable.profile_img,"김민정","영혼의 단짝",90),
+        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",10),
+        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",20),
+        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",30),
+        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",40),
+        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",50),
+        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",60),
+        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",70),
+        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",80),
+        FriendProfile(R.drawable.profile_img,"김민정","영혼의 단짝",90),
     )
     val graphLists = arrayListOf(
         Graphs("홍길동","솜사탕","빼빼로"),
@@ -85,9 +85,9 @@ class FriendFragment : Fragment() {
 
 }
 
-class Graphs(val one:String, val two:String, val three:String)
+class Graphs(val one:String, val two:String, val three:String,var title:String="시청 시간이\n가장 많은 사람")
 
-class MyFriendAdapter(context: Context?, val profilesList:ArrayList<FriendProfile1>) : RecyclerView.Adapter<MyFriendAdapter.CustomViewViewHolder>(){
+class MyFriendAdapter(context: Context?, val profilesList:ArrayList<FriendProfile>) : RecyclerView.Adapter<MyFriendAdapter.CustomViewViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_friend_item,parent, false)
@@ -101,7 +101,7 @@ class MyFriendAdapter(context: Context?, val profilesList:ArrayList<FriendProfil
         holder.level.text=profilesList.get(position).level
         holder.img.setImageResource(profilesList.get(position).img)
         holder.prog.setProgress(profilesList.get(position).prog)
-
+        holder.percent.text=profilesList.get(position).prog.toString()+"%"
     }
 
     class CustomViewViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
@@ -109,7 +109,7 @@ class MyFriendAdapter(context: Context?, val profilesList:ArrayList<FriendProfil
         val prog = itemView.findViewById<ProgressBar>(R.id.friend_item_progress)
         val name = itemView.findViewById<TextView>(R.id.friend_item_name)
         val level = itemView.findViewById<TextView>(R.id.friend_item_level)
-        val title = itemView.findViewById<TextView>(R.id.friend_graph_title)
+        val percent = itemView.findViewById<TextView>(R.id.friend_item_percent)
     }
 }
 class MyGraphAdapter(context: Context?, val graphList:ArrayList<Graphs>) : RecyclerView.Adapter<MyGraphAdapter.CustomViewViewHolder>(){
@@ -125,9 +125,11 @@ class MyGraphAdapter(context: Context?, val graphList:ArrayList<Graphs>) : Recyc
         holder.one.text=graphList.get(position).one
         holder.two.text=graphList.get(position).two
         holder.three.text=graphList.get(position).three
+        holder.title.text=graphList.get(position).title
     }
 
     class CustomViewViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
+        val title = itemView.findViewById<TextView>(R.id.friend_graph_title)
         val one = itemView.findViewById<TextView>(R.id.friend_graph_one)
         val two = itemView.findViewById<TextView>(R.id.friend_graph_two)
         val three = itemView.findViewById<TextView>(R.id.friend_graph_three)
