@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.movie.it.BadgeActivity
 import com.movie.it.R
 import com.movie.it.databinding.FragmentMyBinding
 import com.movie.it.record.RecordActivity
 import com.movie.it.wishlist.WishListActivity
+import im.dacer.androidcharts.PieHelper
 
 class MyFragment : Fragment() {
 
@@ -43,12 +45,24 @@ class MyFragment : Fragment() {
                 startActivity(Intent(context, RecordActivity::class.java))
             }
             bedgelistBtn.setOnClickListener {
-//                startActivity(Intent(context, BadgeAcitivity::class.java))
+                startActivity(Intent(context, BadgeActivity::class.java))
             }
+//
+//            val genrePieHelperList = ArrayList<PieHelper>()
+//            genrePieView.setDate(genrePieHelperList)
+//            genrePieView.selectedPie(1)
+//            genrePieView.showPercentLabel(true)
+//
+//            val ratingPieHelperList = ArrayList<PieHelper>()
+//            ratingPieView.setDate(ratingPieHelperList)
+//            ratingPieView.selectedPie(1)
+//            ratingPieView.showPercentLabel(true)
+
         }
-//        genre_pie_view
 
     }
+
+//    private fun make
 
     override fun onDestroyView() {
         super.onDestroyView()
