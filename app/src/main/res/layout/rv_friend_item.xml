@@ -24,6 +24,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
             tools:srcCompat="@drawable/profile_img" />
 
         <TextView
@@ -45,14 +46,18 @@
 
         <ProgressBar
             android:id="@+id/friend_item_progress"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginBottom="4dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="20"
+            android:progressDrawable="@drawable/progressbar_custom"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/friend_item_img"
             app:layout_constraintStart_toStartOf="parent"
-            android:progress="25"/>
+            app:layout_constraintTop_toTopOf="@+id/friend_item_img" />
 
         <TextView
             android:id="@+id/friend_item_name"

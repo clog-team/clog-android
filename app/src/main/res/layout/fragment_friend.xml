@@ -33,7 +33,7 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-
+<!--badge activity 확인하려 만듬(삭제해도 됨)-->
 <!--    <Button-->
 <!--        android:id="@+id/button"-->
 <!--        android:layout_width="match_parent"-->
