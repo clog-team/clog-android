@@ -7,7 +7,7 @@
 
 
 ## Movie-it
-
+![무빗-목업](https://user-images.githubusercontent.com/50787869/107108075-c24b2180-6878-11eb-8b8c-60b064122ee1.jpeg)
 
 #### Let's movie it! 
 #### 같이 영화보자!
